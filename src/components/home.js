@@ -4,6 +4,7 @@ import Event from '../components/events';
 import Overtime from '../components/overtime';
 import Notification from '../components/notification';
 import EventReminder from '../components/create_event';
+import NotifyUser from '../components/notify_user';
 
 class Home extends Component{
 
@@ -25,6 +26,7 @@ class Home extends Component{
     _renderSubComponent = () => {
         switch(this.state.render){
             case 'events' : return <EventReminder/>
+            case 'notify_user': return <NotifyUser/>
         }
     }
 
@@ -68,7 +70,7 @@ class Home extends Component{
                         </div>
                         <div className="card_options">
                             <div className="card_option_list">
-                                <div><h4>Notify user</h4></div>
+                                <div onClick={this.handleClick.bind(this,'notify_user')}><h4>Notify user</h4></div>
                                 <hr/>
                                 <div><h4>Notify team</h4></div>
                             </div>
@@ -81,21 +83,6 @@ class Home extends Component{
             </div>
         )
     }
-
-    // render(){
-    //     return(
-    //         <div>
-    //             <div className="cards_holder">
-    //                 <Event/>
-    //                 <Overtime/>
-    //                 <Notification/>
-    //             </div>
-    //             <div className="description_holder">
-                    
-    //             </div>
-    //         </div>
-    //     )
-    // }
 }
 
 export default Home;
